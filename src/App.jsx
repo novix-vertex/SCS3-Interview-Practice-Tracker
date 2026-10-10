@@ -1,8 +1,9 @@
 import React from 'react'
+import Dashboard from './pages/Dashboard'
 
 const App = () => {
   return (
-    <div>Interview Practice Tracker</div>
+    <Dashboard />
   )
 }
 
