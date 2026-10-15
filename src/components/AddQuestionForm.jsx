@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const AddQuestionForm = () => {
-    const handleSubmit = () => {
+const AddQuestionForm = ({ onAddQuestion }) => {
+    const [title, setTitle] = useState("");
+    const [category, setCategory] = useState("DSA");
+    const [difficulty, setDifficulty] = useState("Easy");
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!title.trim()) {
+            return;
+        }
+
+        onAddQuestion({
+            title: title.trim(),
+            category,
+            difficulty
+        });
+
+        setTitle("");
+        setCategory("DSA");
+        setDifficulty("Easy");
     }
     return (
         <section className="add-question-section">
@@ -14,18 +32,26 @@ const AddQuestionForm = () => {
                     id="question-title"
                     type="text"
                     placeholder="Enter a question"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                     required
                 />
 
                 <label htmlFor="question-category">Category</label>
-                <select id="question-category">
+                <select
+                    id="question-category"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}>
                     <option value="DSA">DSA</option>
                     <option value="Git">Git</option>
                     <option value="Technical">Technical</option>
                 </select>
 
                 <label htmlFor="question-difficulty">Difficulty</label>
-                <select id="question-difficulty">
+                <select
+                    id="question-difficulty"
+                    value={difficulty}
+                    onChange={(e) => setDifficulty(e.target.value)}>
                     <option value="Easy">Easy</option>
                     <option value="Medium">Medium</option>
                     <option value="Hard">Hard</option>

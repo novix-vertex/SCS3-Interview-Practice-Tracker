@@ -4,16 +4,26 @@ import Statistics from '../components/Statistics'
 import Progress from '../components/Progress'
 import AddQuestionForm from '../components/AddQuestionForm'
 import QuestionList from '../components/QuestionList'
+import useInterviewTracker from '../hook/useInterviewTracker'
 
 const Dashboard = () => {
+    const {
+        questions,
+        handleAddQuestion,
+    } = useInterviewTracker();
+
     return (
         <div className="page-container">
             <main className="app">
                 <Header />
-                <Statistics />
-                <Progress />
-                <AddQuestionForm />
-                <QuestionList />
+                <Statistics
+                    questions={questions}
+                />
+                <Progress questions={questions} />
+                <AddQuestionForm onAddQuestion={handleAddQuestion} />
+                <QuestionList
+                    questions={questions}
+                />
             </main>
         </div>
     )
