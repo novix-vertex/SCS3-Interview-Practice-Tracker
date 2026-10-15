@@ -6,6 +6,9 @@
   --white: #FFFFFF;
   --gray-color: #687386;
   --primary-color: #3157C8;
+
+  --border-hover-color: #C5CBD5;
+  --tag-background-color: #F0F2F6;
 }
 
 /* Global Reset */
@@ -140,12 +143,102 @@ body {
   height: 0.625rem;
   overflow: hidden;
   background: var(--progress-background-color);
-  border-radius:1rem;
+  border-radius: 1rem;
 }
 
 .progress-fill {
   height: 100%;
   background: var(--primary-color);
   transition: width 0.2s ease;
-  border-radius:1rem;
+  border-radius: 1rem;
 }
+
+
+/* Questions Section */
+.question-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.question-list-section h2 {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Question Card */
+.question-card {
+  display: flex;
+  min-width: 0;
+  padding: 1.125rem;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  transition: border-color 0.2s ease;
+}
+
+.question-card:hover {
+  border-color: var(--border-hover-color);
+}
+
+/* Question Details */
+.question-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.question-details h3 {
+  font-size: 1rem;
+}
+
+/* Category and Difficulty Tags */
+.question-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.question-info span {
+  padding: 0.25rem 0.625rem;
+  color: var(--gray-color);
+  background: var(--tag-background-color);
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+
+/* Question Status */
+.question-details label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.question-details select, .dashboard-card select {
+  width: 100%;
+  max-width: 15rem;
+  padding: 0.625rem 0.75rem;
+  color: var(--text-color);
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.question-details select:focus, .dashboard-card select:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 1px;
+}
+
+
