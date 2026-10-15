@@ -7,22 +7,22 @@ const Statistics = () => {
 
             <div className="dashboard-cards">
                 <div className="dashboard-card">
-                    <h3>Total Questions</h3>
-                    <p>0</p>
+                    <h3 className='dashboard-card-title'>Total Questions</h3>
+                    <p className='dashboard-card-value'>0</p>
                 </div>
 
                 <div className="dashboard-card">
-                    <h3>Completed DSA</h3>
-                    <p>0</p>
+                    <h3 className='dashboard-card-title'>Completed DSA</h3>
+                    <p className='dashboard-card-value'>0</p>
                 </div>
 
                 <div className="dashboard-card">
-                    <h3>Completed Interview Questions</h3>
-                    <p>0</p>
+                    <h3 className='dashboard-card-title'>Completed Interview Questions</h3>
+                    <p className='dashboard-card-value'>0</p>
                 </div>
 
                 <div className="dashboard-card">
-                    <h3>Machine Coding</h3>
+                    <h3 className='dashboard-card-title'>Machine Coding</h3>
                     <select>
                         <option value="Not Started">Not Started</option>
                         <option value="In Progress">In Progress</option>
