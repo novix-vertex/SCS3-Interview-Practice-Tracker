@@ -24,7 +24,7 @@ const AddQuestionForm = ({ onAddQuestion }) => {
     }
     return (
         <section className="add-question-section">
-            <h2>Add a Question</h2>
+            <h2 className="add-question-section-heading">Add a Question</h2>
 
             <form onSubmit={handleSubmit} className="question-form">
                 <label htmlFor="question-title">Question</label>

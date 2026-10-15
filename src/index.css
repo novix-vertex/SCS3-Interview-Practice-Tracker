@@ -224,9 +224,11 @@ body {
   font-weight: 600;
 }
 
-.question-details select, .dashboard-card select {
+.question-details select,
+.dashboard-card select,
+.question-form select,
+.question-form input {
   width: 100%;
-  max-width: 15rem;
   padding: 0.625rem 0.75rem;
   color: var(--text-color);
   background: var(--white);
@@ -236,9 +238,59 @@ body {
   cursor: pointer;
 }
 
-.question-details select:focus, .dashboard-card select:focus {
+.question-details select,
+.dashboard-card select,
+.question-form select {
+  max-width: 15rem;
+}
+
+.question-details select:focus,
+.dashboard-card select:focus,
+.question-form select:focus {
   outline: 2px solid var(--primary-color);
   outline-offset: 1px;
 }
 
+/* Add Question Section */
+.add-question-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+}
 
+.add-question-section .add-question-section-heading {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+/* Question Form */
+.question-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.question-form label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Add Question Button */
+.question-form button {
+  padding: 0.75rem 1rem;
+  color: var(--white);
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 0.5rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.question-form button:hover {
+  opacity: 0.9;
+}
