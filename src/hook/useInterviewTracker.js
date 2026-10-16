@@ -1,41 +1,15 @@
 import { nanoid } from 'nanoid'
 import { useEffect, useState } from "react";
 
-const initialQuestions = [
-    {
-        id: nanoid(),
-        title: "Reverse a linked list",
-        category: "DSA",
-        difficulty: "Medium",
-        status: "Completed"
-    },
-    {
-        id: nanoid(),
-        title: "Git merge vs rebase",
-        category: "Git",
-        difficulty: "Easy",
-        status: "Pending"
-    },
-    {
-        id: nanoid(),
-        title: "Explain JWT",
-        category: "Technical",
-        difficulty: "Medium",
-        status: "In Progress"
-    }
-];
-
 const useInterviewTracker = () => {
     const [questions, setQuestions] = useState(() => {
         try {
             const savedQuestions = localStorage.getItem("questions");
-            if (savedQuestions) {
-                return JSON.parse(savedQuestions);
-            }
+            return savedQuestions ? JSON.parse(savedQuestions) : [];
+
         } catch (error) {
             console.error("Local Storage Data Fetching Error:", error);
         }
-        return initialQuestions;
     });
 
     useEffect(() => {
