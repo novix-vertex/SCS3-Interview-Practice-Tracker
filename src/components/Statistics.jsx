@@ -1,6 +1,19 @@
 import React from 'react'
 
-const Statistics = () => {
+const Statistics = ({ questions }) => {
+    const totalQuestions = questions.length;
+    const completedDSA = questions.filter(
+        (question) =>
+            question.category === "DSA" &&
+            question.status === "Completed"
+    ).length;
+    const completedInterviewQuestions = questions.filter(
+        (question) =>
+            (question.category === "Git" ||
+                question.category === "Technical") &&
+            question.status === "Completed"
+    ).length;
+
     return (
         <section className="dashboard">
             <h2>Your Preparation</h2>
@@ -8,17 +21,17 @@ const Statistics = () => {
             <div className="dashboard-cards">
                 <div className="dashboard-card">
                     <h3 className='dashboard-card-title'>Total Questions</h3>
-                    <p className='dashboard-card-value'>0</p>
+                    <p className='dashboard-card-value'>{totalQuestions}</p>
                 </div>
 
                 <div className="dashboard-card">
                     <h3 className='dashboard-card-title'>Completed DSA</h3>
-                    <p className='dashboard-card-value'>0</p>
+                    <p className='dashboard-card-value'>{completedDSA}</p>
                 </div>
 
                 <div className="dashboard-card">
                     <h3 className='dashboard-card-title'>Completed Interview Questions</h3>
-                    <p className='dashboard-card-value'>0</p>
+                    <p className='dashboard-card-value'>{completedInterviewQuestions}</p>
                 </div>
 
                 <div className="dashboard-card">

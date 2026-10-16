@@ -1,8 +1,8 @@
 import React from 'react'
 import QuestionCard from './QuestionCard';
 
-const QuestionList = ({questions}) => {
-    
+const QuestionList = ({ questions, onStatusChange }) => {
+
     return (
         <section className="question-list-section">
             <h2>Questions</h2>
@@ -11,6 +11,7 @@ const QuestionList = ({questions}) => {
                     <QuestionCard
                         key={question.id}
                         question={question}
+                        onStatusChange={onStatusChange}
                     />
                 ))}
             </div>

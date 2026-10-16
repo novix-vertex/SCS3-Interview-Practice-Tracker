@@ -10,6 +10,7 @@ const Dashboard = () => {
     const {
         questions,
         handleAddQuestion,
+        handleStatusChanged
     } = useInterviewTracker();
 
     return (
@@ -23,6 +24,7 @@ const Dashboard = () => {
                 <AddQuestionForm onAddQuestion={handleAddQuestion} />
                 <QuestionList
                     questions={questions}
+                    onStatusChange={handleStatusChanged}
                 />
             </main>
         </div>
