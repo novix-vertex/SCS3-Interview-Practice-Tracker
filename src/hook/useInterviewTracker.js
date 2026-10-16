@@ -27,8 +27,15 @@ const initialQuestions = [
 
 const useInterviewTracker = () => {
     const [questions, setQuestions] = useState(() => {
-        const savedQuestions = localStorage.getItem("questions");
-        return savedQuestions ? JSON.parse(savedQuestions) : initialQuestions
+        try {
+            const savedQuestions = localStorage.getItem("questions");
+            if (savedQuestions) {
+                return JSON.parse(savedQuestions);
+            }
+        } catch (error) {
+            console.error("Local Storage Data Fetching Error:", error);
+        }
+        return initialQuestions;
     });
 
     useEffect(() => {
