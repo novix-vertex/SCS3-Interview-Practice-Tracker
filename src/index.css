@@ -9,6 +9,7 @@
 
   --border-hover-color: #C5CBD5;
   --tag-background-color: #F0F2F6;
+  --error-color: #C62828;
 }
 
 /* Global Reset */
@@ -346,4 +347,10 @@ body {
   border-radius: 0.75rem;
   text-align: center;
   line-height: 1.5;
+}
+
+/* Form Error */
+.form-error {
+  color: var(--error-color);
+  font-size: 0.875rem;
 }

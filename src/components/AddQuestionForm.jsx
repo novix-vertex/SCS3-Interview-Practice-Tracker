@@ -4,14 +4,17 @@ const AddQuestionForm = ({ onAddQuestion }) => {
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("DSA");
     const [difficulty, setDifficulty] = useState("Easy");
+    const [error, setError] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (!title.trim()) {
+            setError("Please enter a question title");
             return;
         }
 
+        setError("");
         onAddQuestion({
             title: title.trim(),
             category,
@@ -33,10 +36,13 @@ const AddQuestionForm = ({ onAddQuestion }) => {
                     type="text"
                     placeholder="Enter a question"
                     value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    onChange={(e) => {
+                        setTitle(e.target.value);
+                        setError("");
+                    }}
                     required
                 />
-
+                {error && <p className="form-error">{error}</p>}
                 <label htmlFor="question-category">Category</label>
                 <select
                     id="question-category"
