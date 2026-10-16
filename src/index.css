@@ -302,12 +302,11 @@ body {
 
 /* Add Question Button */
 .question-form button {
-  height: 42px;
-  padding: 0 1rem;
+  align-self: center;
+  padding: 0.625rem 1rem;
   color: var(--white);
   background: var(--primary-color);
   border: 1px solid var(--primary-color);
-  align-self: flex-end;
   border-radius: 0.5rem;
   font: inherit;
   font-weight: 600;
