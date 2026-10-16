@@ -67,6 +67,7 @@ const Dashboard = () => {
                 <QuestionList
                     questions={filteredQuestions}
                     onStatusChange={handleStatusChange}
+                    totalQuestions={questions.length}
                 />
             </main>
         </div>
