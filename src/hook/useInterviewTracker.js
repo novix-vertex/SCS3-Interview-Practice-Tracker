@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid'
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 
 const initialQuestions = [
     {
@@ -26,9 +26,18 @@ const initialQuestions = [
 ];
 
 const useInterviewTracker = () => {
-    const [questions, setQuestions] = useState(initialQuestions);
-    const [machineCodingStatus, setMachineCodingStatus] = useState("Not Started");
+    const [questions, setQuestions] = useState(() => {
+        const savedQuestions = localStorage.getItem("questions");
+        return savedQuestions ? JSON.parse(savedQuestions) : initialQuestions
+    });
 
+    useEffect(() => {
+        localStorage.setItem("questions", JSON.stringify(questions));
+    }, [questions]);
+
+    const [machineCodingStatus, setMachineCodingStatus] = useState(() =>
+        localStorage.getItem("machineCodingStatus") || "Not Started"
+    );
     const handleAddQuestion = (newQuestion) => {
         setQuestions((previousQuestions) => [...previousQuestions, { ...newQuestion, id: nanoid(), status: "Pending" }]);
     }
@@ -44,6 +53,8 @@ const useInterviewTracker = () => {
 
     const handleMachineCodingStatusChange = (newStatus) => {
         setMachineCodingStatus(newStatus);
+        localStorage.setItem("machineCodingStatus", newStatus);
+
     };
 
     return {
