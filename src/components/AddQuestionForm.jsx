@@ -25,48 +25,59 @@ const AddQuestionForm = ({ onAddQuestion }) => {
         setCategory("DSA");
         setDifficulty("Easy");
     }
+
     return (
         <section className="add-question-section">
             <h2 className="add-question-section-heading">Add a Question</h2>
 
             <form onSubmit={handleSubmit} className="question-form">
-                <label htmlFor="question-title">Question</label>
-                <input
-                    id="question-title"
-                    type="text"
-                    placeholder="Enter a question"
-                    value={title}
-                    onChange={(e) => {
-                        setTitle(e.target.value);
-                        setError("");
-                    }}
-                    required
-                />
-                {error && <p className="form-error">{error}</p>}
-                <label htmlFor="question-category">Category</label>
-                <select
-                    id="question-category"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}>
-                    <option value="DSA">DSA</option>
-                    <option value="Git">Git</option>
-                    <option value="Technical">Technical</option>
-                </select>
+                <div className="form-field question-field">
+                    <label htmlFor="question-title">Question</label>
+                    <input
+                        id="question-title"
+                        type="text"
+                        placeholder="Enter a question"
+                        value={title}
+                        onChange={(e) => {
+                            setTitle(e.target.value);
+                            setError("");
+                        }}
+                        required
+                    />
+                    {error && <p className="form-error">{error}</p>}
+                </div>
 
-                <label htmlFor="question-difficulty">Difficulty</label>
-                <select
-                    id="question-difficulty"
-                    value={difficulty}
-                    onChange={(e) => setDifficulty(e.target.value)}>
-                    <option value="Easy">Easy</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Hard">Hard</option>
-                </select>
+                <div className="form-field">
+                    <label htmlFor="question-category">Category</label>
+                    <select
+                        id="question-category"
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                    >
+                        <option value="DSA">DSA</option>
+                        <option value="Git">Git</option>
+                        <option value="Technical">Technical</option>
+                    </select>
+                </div>
+
+                <div className="form-field">
+                    <label htmlFor="question-difficulty">Difficulty</label>
+                    <select
+                        id="question-difficulty"
+                        value={difficulty}
+                        onChange={(e) => setDifficulty(e.target.value)}
+                    >
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                </div>
 
                 <button type="submit">Add Question</button>
             </form>
         </section>
-    )
+    );
+
 }
 
 export default AddQuestionForm
