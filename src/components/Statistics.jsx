@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Statistics = ({ questions }) => {
+const Statistics = ({
+    questions,
+    machineCodingStatus,
+    onMachineCodingStatusChange,
+}) => {
     const totalQuestions = questions.length;
     const completedDSA = questions.filter(
         (question) =>
@@ -36,7 +40,12 @@ const Statistics = ({ questions }) => {
 
                 <div className="dashboard-card">
                     <h3 className='dashboard-card-title'>Machine Coding</h3>
-                    <select>
+                    <select
+                        value={machineCodingStatus}
+                        onChange={(e) =>
+                            onMachineCodingStatusChange(e.target.value)
+                        }
+                    >
                         <option value="Not Started">Not Started</option>
                         <option value="In Progress">In Progress</option>
                         <option value="Completed">Completed</option>

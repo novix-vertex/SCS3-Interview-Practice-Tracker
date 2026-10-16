@@ -27,19 +27,31 @@ const initialQuestions = [
 
 const useInterviewTracker = () => {
     const [questions, setQuestions] = useState(initialQuestions);
+    const [machineCodingStatus, setMachineCodingStatus] = useState("Not Started");
 
     const handleAddQuestion = (newQuestion) => {
         setQuestions((previousQuestions) => [...previousQuestions, { ...newQuestion, id: nanoid(), status: "Pending" }]);
     }
 
-    const handleStatusChanged = (questionId, newStatus) => {
-        setQuestions((previousQuestions) => previousQuestions.map((question) => question.id === questionId ? { ...question, status: newStatus } : question));
-    }
+    const handleStatusChange = (questionId, newStatus) => {
+        setQuestions((previousQuestions) =>
+            previousQuestions.map((question) =>
+                question.id === questionId
+                    ? { ...question, status: newStatus }
+                    : question)
+        );
+    };
+
+    const handleMachineCodingStatusChange = (newStatus) => {
+        setMachineCodingStatus(newStatus);
+    };
 
     return {
         questions,
         handleAddQuestion,
-        handleStatusChanged
+        handleStatusChange,
+        machineCodingStatus,
+        handleMachineCodingStatusChange
     }
 }
 

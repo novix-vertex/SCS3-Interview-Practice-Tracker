@@ -10,7 +10,9 @@ const Dashboard = () => {
     const {
         questions,
         handleAddQuestion,
-        handleStatusChanged
+        handleStatusChange,
+        machineCodingStatus,
+        handleMachineCodingStatusChange,
     } = useInterviewTracker();
 
     return (
@@ -19,12 +21,14 @@ const Dashboard = () => {
                 <Header />
                 <Statistics
                     questions={questions}
+                    machineCodingStatus={machineCodingStatus}
+                    onMachineCodingStatusChange={handleMachineCodingStatusChange}
                 />
                 <Progress questions={questions} />
                 <AddQuestionForm onAddQuestion={handleAddQuestion} />
                 <QuestionList
                     questions={questions}
-                    onStatusChange={handleStatusChanged}
+                    onStatusChange={handleStatusChange}
                 />
             </main>
         </div>
