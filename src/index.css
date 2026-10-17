@@ -380,6 +380,12 @@ body {
   font-size: 0.875rem;
 }
 
+/*Form Success*/
+.success-message {
+  color: #2e7d32;
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+}
 
 /* Responsive layout */
 

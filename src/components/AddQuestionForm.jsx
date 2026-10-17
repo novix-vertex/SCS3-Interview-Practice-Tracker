@@ -5,6 +5,7 @@ const AddQuestionForm = ({ onAddQuestion }) => {
     const [category, setCategory] = useState("DSA");
     const [difficulty, setDifficulty] = useState("Easy");
     const [error, setError] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +21,7 @@ const AddQuestionForm = ({ onAddQuestion }) => {
             category,
             difficulty
         });
+        setSuccessMessage("Question added successfully!");
 
         setTitle("");
         setCategory("DSA");
@@ -41,6 +43,7 @@ const AddQuestionForm = ({ onAddQuestion }) => {
                         onChange={(e) => {
                             setTitle(e.target.value);
                             setError("");
+                            setSuccessMessage("");
                         }}
                         required
                     />
@@ -75,6 +78,9 @@ const AddQuestionForm = ({ onAddQuestion }) => {
 
                 <button type="submit">Add Question</button>
             </form>
+            {successMessage && (
+                <p className="success-message">{successMessage}</p>
+            )}
         </section>
     );
 
