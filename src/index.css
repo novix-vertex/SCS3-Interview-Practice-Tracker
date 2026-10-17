@@ -364,6 +364,7 @@ body {
 
 /* Empty State */
 .empty-state {
+  grid-column: 1 / -1;
   padding: 1.5rem;
   color: var(--gray-color);
   background: var(--white);
